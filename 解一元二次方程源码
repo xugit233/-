@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	float a,b,c,x,x1,x2,j;//a为二次项系数，b为一次项系数，c为常数项；x1，x2为解;j为Δ 
+	int k;
+	system("color 1f");
+	
+	do
+	{
+		system("cls");//清除界面内容 
+		printf("##########解一元二次方程工具V.1##########\n");
+		printf("请输入二次项系数的值:\n");//a的值 
+		scanf("%f",&a);
+		printf("请输入一次项系数的值:\n");//b的值
+		scanf("%f",&b);
+		printf("请输入常数项:\n");
+		scanf("%f",&c);
+	
+		j=b*b-4*a*c;//计算Δ,让后面的程序块更易读,也可以判断解的情况 
+
+		if(a != 0)
+		{
+			if(j<0)
+			{
+				printf("抱歉，这个方程无解!");
+			}
+			if(j==0)
+			{
+			x1=(-b)/(2*a);
+			printf("此方程的解为x1=x2=%f",x1);
+			}
+	    	if(j>0) 
+			{
+				x1=(-b+sqrt(j))/(2*a);
+				x2=(-b-sqrt(j))/(2*a);
+				printf("此方程的解为x1=%f,x2=%f",x1,x2);
+			}
+		}
+		else
+		{
+			printf("Error!!!");
+		}
+	printf("\n如果需要继续运算，请按1；如果不需要请按任意键退出");
+	scanf("%d",&k);
+	
+	}while(k==1);
+
+	return 0;
+}
